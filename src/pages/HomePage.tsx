@@ -98,18 +98,58 @@ export function HomePage() {
 
   return (
     <>
-      <Hero
-        personas={personas}
-        activePersonaId={activePersonaId}
-        onSelectPersona={handleSelectPersona}
-      />
-      <section className="search" aria-label="Wyszukiwarka wysp">
+      <Hero />
+      <section className="personas" aria-label="Wybierz perspektywę">
+        <div className="container personas__inner">
+          <div className="personas__grid" role="group" aria-label="Wybierz perspektywę">
+            {personas.map((p) => {
+              const isActive = activePersonaId === p.id;
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  className={
+                    "persona-button" +
+                    (isActive ? " persona-button--active" : "")
+                  }
+                  aria-pressed={isActive}
+                  onClick={() => handleSelectPersona(p.id)}
+                >
+                  <span className="persona-button__label">{p.label}</span>
+                  <span className="persona-button__description">
+                    {p.description}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+          {activePersonaId !== null && (
+            <p className="personas__hint" role="status">
+              Pokazujemy wyspy dopasowane do twojej perspektywy. Kliknij wybraną
+              personę ponownie, aby zobaczyć wszystkie.
+            </p>
+          )}
+        </div>
+      </section>
+      <section id="wyspy" className="islands" aria-labelledby="islands-h">
         <div className="container">
-          <SearchBox
-            value={query}
-            onChange={setQuery}
-            onClear={() => setQuery("")}
-          />
+          <div className="islands__header">
+            <div className="islands__heading">
+              <h2 id="islands-h" className="islands__title">
+                Sześć wysp wiedzy
+              </h2>
+              <p className="islands__lede">
+                Każda wyspa to jeden temat. Kliknij, żeby wejść głębiej.
+              </p>
+            </div>
+            <div className="islands__search">
+              <SearchBox
+                value={query}
+                onChange={setQuery}
+                onClear={() => setQuery("")}
+              />
+            </div>
+          </div>
           <div aria-live="polite" className="sr-only">
             {announcement}
           </div>
@@ -118,34 +158,32 @@ export function HomePage() {
               Wyniki: {filtered.length} z {islands.length}
             </p>
           )}
+          {showEmptyState ? (
+            <div className="search-empty__inner" aria-labelledby="search-empty-h">
+              <p className="search-empty__emoji" aria-hidden="true">
+                🌿
+              </p>
+              <h3 id="search-empty-h" className="search-empty__title">
+                Nie znaleźliśmy wysp pasujących do „{trimmedQuery}”.
+              </h3>
+              <p className="search-empty__lede">Spróbuj innego słowa.</p>
+              <button
+                type="button"
+                className="search-empty__button"
+                onClick={() => setQuery("")}
+              >
+                Wyczyść wyszukiwanie
+              </button>
+            </div>
+          ) : (
+            <IslandGrid
+              islands={filtered}
+              activePersonaIslandIds={activePersonaIslandIds}
+              registerCardRef={registerCardRef}
+            />
+          )}
         </div>
       </section>
-      {showEmptyState ? (
-        <section className="search-empty" aria-labelledby="search-empty-h">
-          <div className="container search-empty__inner">
-            <p className="search-empty__emoji" aria-hidden="true">
-              🌿
-            </p>
-            <h2 id="search-empty-h" className="search-empty__title">
-              Nie znaleźliśmy wysp pasujących do „{trimmedQuery}”.
-            </h2>
-            <p className="search-empty__lede">Spróbuj innego słowa.</p>
-            <button
-              type="button"
-              className="search-empty__button"
-              onClick={() => setQuery("")}
-            >
-              Wyczyść wyszukiwanie
-            </button>
-          </div>
-        </section>
-      ) : (
-        <IslandGrid
-          islands={filtered}
-          activePersonaIslandIds={activePersonaIslandIds}
-          registerCardRef={registerCardRef}
-        />
-      )}
     </>
   );
 }

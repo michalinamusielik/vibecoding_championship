@@ -150,23 +150,29 @@ body {
   max-width: 60ch;
   margin: 0;
 }
-.hero__hint {
-  font-size: var(--fs-sm);
-  color: var(--text-muted);
-  margin: 0;
+/* Personas section */
+.personas {
+  padding: 0 0 var(--space-6);
 }
-
-/* Persona buttons */
-.hero__personas {
+.personas__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.personas__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
-  margin-top: var(--space-4);
 }
 @media (min-width: 768px) {
-  .hero__personas {
+  .personas__grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+.personas__hint {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  margin: 0;
 }
 .persona-button {
   display: flex;
@@ -215,13 +221,40 @@ body {
 .islands {
   padding: var(--space-8) 0 var(--space-10);
 }
+.islands__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-6);
+}
+@media (min-width: 768px) {
+  .islands__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+}
+.islands__heading {
+  min-width: 0;
+}
+.islands__search {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .islands__search {
+    width: 100%;
+    max-width: 400px;
+    flex-shrink: 0;
+  }
+}
 .islands__title {
   font-size: clamp(var(--fs-xl), 4vw, var(--fs-2xl));
   margin: 0 0 var(--space-2);
 }
 .islands__lede {
   color: var(--text-muted);
-  margin: 0 0 var(--space-6);
+  margin: 0;
 }
 .islands__grid {
   list-style: none;
