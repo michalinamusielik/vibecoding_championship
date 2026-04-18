@@ -4,14 +4,12 @@ import { IslandCard } from "./IslandCard";
 interface IslandGridProps {
   islands: Island[];
   activePersonaIslandIds: string[] | null;
-  onOpenIsland: (island: Island) => void;
-  registerCardRef: (id: string, el: HTMLButtonElement | null) => void;
+  registerCardRef: (id: string, el: HTMLAnchorElement | null) => void;
 }
 
 export function IslandGrid({
   islands,
   activePersonaIslandIds,
-  onOpenIsland,
   registerCardRef,
 }: IslandGridProps) {
   const filterActive = activePersonaIslandIds !== null;
@@ -37,8 +35,7 @@ export function IslandGrid({
                   island={island}
                   dimmed={dimmed}
                   highlighted={highlighted}
-                  onOpen={onOpenIsland}
-                  buttonRef={(el) => registerCardRef(island.id, el)}
+                  linkRef={(el) => registerCardRef(island.id, el)}
                 />
               </li>
             );
