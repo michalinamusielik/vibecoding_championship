@@ -1,0 +1,62 @@
+/* Design tokens — ciepła paleta, kontrast WCAG AA. */
+
+:root {
+  /* Paleta bazowa */
+  --color-cream: #FFF8F0;
+  --color-sand: #F3E3D0;
+  --color-honey: #D9B382;
+  --color-amber: #E8A93C;
+  --color-clay: #B4583C;
+  --color-rust: #8F3E20;
+  --color-brown: #4A3428;
+  --color-ink: #2B1E17;
+
+  /* Role semantyczne */
+  --bg: var(--color-cream);
+  --bg-elevated: #FFFFFF;
+  --bg-muted: var(--color-sand);
+  --text: var(--color-ink);
+  --text-muted: #5C4636;
+  --accent: var(--color-clay);
+  --accent-soft: var(--color-amber);
+  --border: #E7D6BE;
+
+  /* Typografia */
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Fraunces", "DM Serif Display", Georgia, "Times New Roman", serif;
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.125rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.625rem;
+  --fs-2xl: 2.25rem;
+  --fs-3xl: 3rem;
+  --fs-4xl: 4rem;
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-base: 1.6;
+
+  /* Przestrzeń */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4.5rem;
+
+  /* Promienie, cienie */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 2px 6px rgba(74, 52, 40, 0.08);
+  --shadow-md: 0 8px 24px rgba(74, 52, 40, 0.12);
+  --shadow-lg: 0 18px 48px rgba(74, 52, 40, 0.18);
+
+  --max-w: 1120px;
+}
