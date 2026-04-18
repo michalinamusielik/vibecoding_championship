@@ -31,6 +31,25 @@ export function Footer() {
             Teksty na wyspach zostały sparafrazowane na potrzeby tego
             przewodnika — nie cytujemy materiałów źródłowych dosłownie.
           </p>
+          <p className="site-footer__note">
+            Zdjęcie w hero:{" "}
+            <a
+              href="https://unsplash.com/@margoevardson"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Margo Evardson
+            </a>{" "}
+            na{" "}
+            <a
+              href="https://unsplash.com/photos/elderly-woman-in-red-coat-and-headscarf-in-garden-z7GDcDrjR34"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Unsplash
+            </a>
+            .
+          </p>
         </section>
       </div>
     </footer>
