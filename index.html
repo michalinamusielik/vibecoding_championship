@@ -12,6 +12,15 @@
       rel="stylesheet"
     />
     <title>Archipelag Seniora — przewodnik dla wolontariuszy</title>
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("accessibility.largeText") === "1") {
+            document.documentElement.classList.add("text-large");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

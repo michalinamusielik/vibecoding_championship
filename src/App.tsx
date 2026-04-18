@@ -1,89 +1,96 @@
+import { useCallback, useEffect, useRef, useState } from "react";
 import { islands } from "./data/islands";
-import { personas } from "./data/personas";
-import "./App.css";
-
-const paletteSwatches = [
-  { name: "cream", value: "#FFF8F0" },
-  { name: "sand", value: "#F3E3D0" },
-  { name: "honey", value: "#D9B382" },
-  { name: "amber", value: "#E8A93C" },
-  { name: "clay", value: "#B4583C" },
-  { name: "rust", value: "#8F3E20" },
-  { name: "brown", value: "#4A3428" },
-  { name: "ink", value: "#2B1E17" },
-];
+import { personas, type PersonaId } from "./data/personas";
+import type { Island } from "./data/islands";
+import { SkipLink } from "./components/SkipLink";
+import { Hero } from "./components/Hero";
+import { IslandGrid } from "./components/IslandGrid";
+import { IslandModal } from "./components/IslandModal";
+import { LargeTextToggle } from "./components/LargeTextToggle";
+import { Footer } from "./components/Footer";
 
 function App() {
-  const preview = islands.slice(0, 3);
+  const [activePersonaId, setActivePersonaId] = useState<PersonaId | null>(
+    null,
+  );
+  const [openIsland, setOpenIsland] = useState<Island | null>(null);
+
+  const cardRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+  const lastTriggerRef = useRef<HTMLButtonElement | null>(null);
+
+  const registerCardRef = useCallback(
+    (id: string, el: HTMLButtonElement | null) => {
+      const map = cardRefs.current;
+      if (el) map.set(id, el);
+      else map.delete(id);
+    },
+    [],
+  );
+
+  const handleSelectPersona = useCallback((id: PersonaId) => {
+    setActivePersonaId((current) => (current === id ? null : id));
+    window.setTimeout(() => {
+      const target = document.getElementById("wyspy");
+      if (!target) return;
+      const prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      target.scrollIntoView({
+        behavior: prefersReduced ? "auto" : "smooth",
+        block: "start",
+      });
+    }, 0);
+  }, []);
+
+  const handleOpenIsland = useCallback((island: Island) => {
+    lastTriggerRef.current = cardRefs.current.get(island.id) ?? null;
+    setOpenIsland(island);
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setOpenIsland(null);
+  }, []);
+
+  useEffect(() => {
+    if (openIsland === null && lastTriggerRef.current) {
+      const el = lastTriggerRef.current;
+      window.setTimeout(() => el.focus(), 0);
+      lastTriggerRef.current = null;
+    }
+  }, [openIsland]);
+
+  const activePersonaIslandIds =
+    activePersonaId === null
+      ? null
+      : (personas.find((p) => p.id === activePersonaId)?.islandIds ?? []);
 
   return (
-    <div className="scaffold">
-      <header className="scaffold__header container">
-        <p className="scaffold__eyebrow">Fala 1 · scaffold + system designu</p>
-        <h1>Archipelag starości</h1>
-        <p className="scaffold__lede">
-          Baza wiedzy o starzeniu dla trzech odbiorców: bliskich osób
-          starszych, ciekawych tematu i samych seniorów. Sześć wysp, każda
-          jeden temat — krótko, po ludzku, na „ty”.
-        </p>
-        <p className="scaffold__hint">
-          Wysp: <strong>{islands.length}</strong> · Person:{" "}
-          <strong>{personas.length}</strong> · Dane spięte z tokenami
-          kolorystycznymi.
-        </p>
+    <>
+      <SkipLink />
+      <header className="site-header">
+        <div className="container site-header__inner">
+          <span className="site-header__brand">Archipelag starości</span>
+          <LargeTextToggle />
+        </div>
       </header>
-
-      <section className="container scaffold__section" aria-labelledby="palette-h">
-        <h2 id="palette-h">Paleta</h2>
-        <ul className="palette">
-          {paletteSwatches.map((s) => (
-            <li key={s.name} className="palette__item">
-              <span className="palette__swatch" style={{ background: s.value }} />
-              <span className="palette__meta">
-                <strong>{s.name}</strong>
-                <code>{s.value}</code>
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="container scaffold__section" aria-labelledby="cards-h">
-        <h2 id="cards-h">Pierwsze trzy wyspy</h2>
-        <p className="scaffold__hint">
-          Placeholder — karty renderowane z <code>src/data/islands.ts</code>.
-          Hero, pełną siatkę wysp, wybór persony i modal dodamy w Fali 2.
-        </p>
-        <ul className="cards">
-          {preview.map((island, idx) => (
-            <li
-              key={island.id}
-              className="card"
-              style={{
-                ["--card-accent" as string]: `var(--color-${island.accentColor})`,
-              }}
-            >
-              <span className="card__index">
-                {String(idx + 1).padStart(2, "0")}
-              </span>
-              <span className="card__emoji" aria-hidden="true">
-                {island.emoji}
-              </span>
-              <h3 className="card__title">{island.title}</h3>
-              <p className="card__tagline">{island.tagline}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <footer className="scaffold__footer container">
-        <p>
-          Treść sparafrazowana na podstawie „Przewodnika pracy z seniorami”
-          (Fundacja Biedronki, Szlachetna Paczka, 2020), raportu „Osamotnienie”
-          (infuture.institute 2023) i materiałów towarzyszących.
-        </p>
-      </footer>
-    </div>
+      <main id="main">
+        <Hero
+          personas={personas}
+          activePersonaId={activePersonaId}
+          onSelectPersona={handleSelectPersona}
+        />
+        <IslandGrid
+          islands={islands}
+          activePersonaIslandIds={activePersonaIslandIds}
+          onOpenIsland={handleOpenIsland}
+          registerCardRef={registerCardRef}
+        />
+      </main>
+      <Footer />
+      {openIsland !== null && (
+        <IslandModal island={openIsland} onClose={handleCloseModal} />
+      )}
+    </>
   );
 }
 
