@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { islands } from "../data/islands";
 import { personas, type PersonaId } from "../data/personas";
 import { Hero } from "../components/Hero";
+import { PersonaPicker } from "../components/PersonaPicker";
 import { IslandGrid } from "../components/IslandGrid";
 import { SearchBox } from "../components/SearchBox";
 import { searchIslands } from "../lib/searchIslands";
@@ -99,73 +100,24 @@ export function HomePage() {
   return (
     <>
       <Hero />
-      <section className="personas" aria-label="Wybierz perspektywę">
-        <div className="container personas__inner">
-          <div className="personas__grid" role="group" aria-label="Wybierz perspektywę">
-            {personas.map((p) => {
-              const isActive = activePersonaId === p.id;
-              return (
-                <button
-                  key={p.id}
-                  type="button"
-                  className={
-                    "persona-button" +
-                    (isActive ? " persona-button--active" : "")
-                  }
-                  aria-pressed={isActive}
-                  onClick={() => handleSelectPersona(p.id)}
-                >
-                  <span className="persona-button__label">{p.label}</span>
-                  <span className="persona-button__description">
-                    {p.description}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-          {activePersonaId !== null && (
-            <p className="personas__hint" role="status">
-              Pokazujemy wyspy dopasowane do twojej perspektywy. Kliknij wybraną
-              personę ponownie, aby zobaczyć wszystkie.
-            </p>
-          )}
-        </div>
-      </section>
-      <section id="wyspy" className="islands" aria-labelledby="islands-h">
-        <div className="container">
-          <div className="islands__header">
-            <div className="islands__heading">
-              <h2 id="islands-h" className="islands__title">
-                Sześć wysp wiedzy
-              </h2>
-              <p className="islands__lede">
-                Każda wyspa to jeden temat. Kliknij, żeby wejść głębiej.
-              </p>
-            </div>
-            <div className="islands__search">
-              <SearchBox
-                value={query}
-                onChange={setQuery}
-                onClear={() => setQuery("")}
-              />
-            </div>
-          </div>
+      <PersonaPicker
+        personas={personas}
+        activePersonaId={activePersonaId}
+        onSelectPersona={handleSelectPersona}
+      />
+      {showEmptyState ? (
+        <>
           <div aria-live="polite" className="sr-only">
             {announcement}
           </div>
-          {trimmedQuery !== "" && !showEmptyState && (
-            <p className="search__count">
-              Wyniki: {filtered.length} z {islands.length}
-            </p>
-          )}
-          {showEmptyState ? (
-            <div className="search-empty__inner" aria-labelledby="search-empty-h">
+          <section className="search-empty" aria-labelledby="search-empty-h">
+            <div className="container search-empty__inner">
               <p className="search-empty__emoji" aria-hidden="true">
                 🌿
               </p>
-              <h3 id="search-empty-h" className="search-empty__title">
+              <h2 id="search-empty-h" className="search-empty__title">
                 Nie znaleźliśmy wysp pasujących do „{trimmedQuery}”.
-              </h3>
+              </h2>
               <p className="search-empty__lede">Spróbuj innego słowa.</p>
               <button
                 type="button"
@@ -175,15 +127,32 @@ export function HomePage() {
                 Wyczyść wyszukiwanie
               </button>
             </div>
-          ) : (
-            <IslandGrid
-              islands={filtered}
-              activePersonaIslandIds={activePersonaIslandIds}
-              registerCardRef={registerCardRef}
-            />
-          )}
-        </div>
-      </section>
+          </section>
+        </>
+      ) : (
+        <IslandGrid
+          islands={filtered}
+          activePersonaIslandIds={activePersonaIslandIds}
+          registerCardRef={registerCardRef}
+          search={
+            <>
+              <SearchBox
+                value={query}
+                onChange={setQuery}
+                onClear={() => setQuery("")}
+              />
+              <div aria-live="polite" className="sr-only">
+                {announcement}
+              </div>
+              {trimmedQuery !== "" && (
+                <p className="search__count">
+                  Wyniki: {filtered.length} z {islands.length}
+                </p>
+              )}
+            </>
+          }
+        />
+      )}
     </>
   );
 }
