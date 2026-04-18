@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { islands } from "../data/islands";
 import { ModalSection } from "../components/ModalSection";
+import { NotFoundPage } from "./NotFoundPage";
 
 export function IslandPage() {
   const { id } = useParams<{ id: string }>();
@@ -16,7 +17,7 @@ export function IslandPage() {
   }, [island]);
 
   if (!island) {
-    return <Navigate to="/" replace />;
+    return <NotFoundPage />;
   }
 
   const titleId = `island-${island.id}-title`;
