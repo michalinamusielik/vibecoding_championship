@@ -150,26 +150,33 @@ body {
   max-width: 60ch;
   margin: 0;
 }
-/* Personas section */
-.personas {
+/* Persona picker section */
+.persona-picker {
   padding: 0 0 var(--space-6);
 }
-.personas__inner {
+.persona-picker__inner {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
-.personas__grid {
+.persona-picker__eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+}
+.persona-picker__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
 }
 @media (min-width: 768px) {
-  .personas__grid {
+  .persona-picker__grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.personas__hint {
+.persona-picker__hint {
   font-size: var(--fs-sm);
   color: var(--text-muted);
   margin: 0;
@@ -227,21 +234,18 @@ body {
   gap: var(--space-4);
   margin: 0 0 var(--space-6);
 }
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .islands__header {
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: var(--space-6);
   }
 }
-.islands__heading {
-  min-width: 0;
-}
 .islands__search {
   width: 100%;
 }
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .islands__search {
     width: 100%;
     max-width: 400px;
@@ -250,10 +254,6 @@ body {
 }
 .islands__title {
   font-size: clamp(var(--fs-xl), 4vw, var(--fs-2xl));
-  margin: 0 0 var(--space-2);
-}
-.islands__lede {
-  color: var(--text-muted);
   margin: 0;
 }
 .islands__grid {
