@@ -45,7 +45,7 @@ body {
 .site-header__brand {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
   color: var(--color-rust);
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -719,7 +719,7 @@ body {
 .site-footer {
   border-top: 1px solid var(--border);
   background: var(--color-sand);
-  padding: var(--space-8) 0;
+  padding: var(--space-8) 0 var(--space-10);
   margin-top: var(--space-10);
 }
 .site-footer__inner {
