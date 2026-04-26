@@ -53,15 +53,15 @@ export function Footer() {
         <span>
           Zdjęcie:{" "}
           <a
-            href="https://unsplash.com/@andriklangfield"
+            href="https://unsplash.com/@ageing_better"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Andrik Langfield
+            Centre for Ageing Better
           </a>{" "}
           /{" "}
           <a
-            href="https://unsplash.com/photos/bSXk1lOp8T0"
+            href="https://unsplash.com/photos/elderly-people-talking-at-a-bus-stop-HFav_5shSlk"
             target="_blank"
             rel="noopener noreferrer"
           >
