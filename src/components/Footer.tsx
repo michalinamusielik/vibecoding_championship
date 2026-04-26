@@ -34,15 +34,15 @@ export function Footer() {
           <p className="site-footer__note">
             Zdjęcie w hero:{" "}
             <a
-              href="https://unsplash.com/@margoevardson"
+              href="https://unsplash.com/@andriklangfield"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Margo Evardson
+              Andrik Langfield
             </a>{" "}
             na{" "}
             <a
-              href="https://unsplash.com/photos/elderly-woman-in-red-coat-and-headscarf-in-garden-z7GDcDrjR34"
+              href="https://unsplash.com/photos/bSXk1lOp8T0"
               target="_blank"
               rel="noopener noreferrer"
             >

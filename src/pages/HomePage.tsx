@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { islands } from "../data/islands";
 import { personas, type PersonaId } from "../data/personas";
 import { Hero } from "../components/Hero";
+import { Knowledge } from "../components/Knowledge";
 import { PersonaPicker } from "../components/PersonaPicker";
 import { IslandGrid } from "../components/IslandGrid";
 import { SearchBox } from "../components/SearchBox";
@@ -100,6 +101,7 @@ export function HomePage() {
   return (
     <>
       <Hero />
+      <Knowledge />
       <PersonaPicker
         personas={personas}
         activePersonaId={activePersonaId}

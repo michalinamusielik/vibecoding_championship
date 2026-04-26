@@ -19,7 +19,7 @@ export function Hero() {
             <source srcSet="/images/hero.webp" type="image/webp" />
             <img
               src="/images/hero.jpg"
-              alt="Starsza kobieta w czerwonym płaszczu i chustce na głowie uśmiecha się w słonecznym ogrodzie obok kwitnącego krzewu."
+              alt="Opiekunka asystuje starszej parze przy wspólnym kolorowaniu książeczki — uśmiechy i ciepło codziennej obecności."
               width="1600"
               height="2400"
               loading="eager"
