@@ -47,6 +47,9 @@
   --space-6: 2rem;
   --space-8: 3rem;
   --space-10: 4.5rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+  --space-20: 10rem;
 
   /* Promienie, cienie */
   --radius-sm: 8px;
