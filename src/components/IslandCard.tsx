@@ -34,6 +34,9 @@ export function IslandCard({
       </span>
       <span className="island-card__title">{island.title}</span>
       <span className="island-card__tagline">{island.tagline}</span>
+      <span className="island-card__cta" aria-hidden="true">
+        Czytaj <span className="island-card__cta-arrow">→</span>
+      </span>
     </Link>
   );
 }

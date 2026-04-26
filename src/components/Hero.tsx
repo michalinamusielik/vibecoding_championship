@@ -3,7 +3,7 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-h">
       <div className="container hero__inner">
         <div className="hero__content">
-          <p className="hero__eyebrow">Archipelag starości</p>
+          <p className="eyebrow hero__eyebrow">Archipelag starości</p>
           <h1 id="hero-h" className="hero__title">
             Poznaj starość bez lęku
           </h1>

@@ -130,7 +130,7 @@ export function GamesSection() {
                 <span className="games__card-title">{g.title}</span>
                 <span className="games__card-desc">{g.short}</span>
                 <span className="games__card-cta" aria-hidden="true">
-                  Otwórz grę →
+                  Otwórz grę <span className="games__card-cta-arrow">→</span>
                 </span>
               </button>
             </li>
