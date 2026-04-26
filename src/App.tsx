@@ -7,7 +7,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import { SkipLink } from "./components/SkipLink";
-import { LargeTextToggle } from "./components/LargeTextToggle";
 import { Footer } from "./components/Footer";
 import { HomePage } from "./pages/HomePage";
 import { IslandPage } from "./pages/IslandPage";
@@ -37,7 +36,6 @@ function App() {
           <Link to="/" className="site-header__brand">
             Archipelag starości
           </Link>
-          <LargeTextToggle />
         </div>
       </header>
       <main id="main">
