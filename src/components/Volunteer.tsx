@@ -1,6 +1,10 @@
 export function Volunteer() {
   return (
-    <section className="volunteer" aria-labelledby="volunteer-h">
+    <section
+      id="wolontariat"
+      className="volunteer"
+      aria-labelledby="volunteer-h"
+    >
       <div className="container volunteer__inner">
         <h2 id="volunteer-h" className="volunteer__title">
           Zostań wolontariuszem

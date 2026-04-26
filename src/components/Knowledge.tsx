@@ -44,7 +44,7 @@ export function Knowledge() {
   };
 
   return (
-    <section className="knowledge" aria-labelledby="knowledge-h">
+    <section id="wiedza" className="knowledge" aria-labelledby="knowledge-h">
       <div className="container knowledge__inner">
         <header className="knowledge__heading">
           <h2 id="knowledge-h" className="knowledge__title">
