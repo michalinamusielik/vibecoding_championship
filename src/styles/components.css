@@ -1010,38 +1010,73 @@ body {
   margin: 0;
 }
 .games__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-5);
 }
+@media (min-width: 640px) {
+  .games__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media (min-width: 1024px) {
   .games__grid {
-    grid-template-columns: repeat(3, 1fr);
-    align-items: start;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .games__card {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-3);
+  width: 100%;
+  height: 100%;
+  text-align: left;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font: inherit;
+  color: var(--text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
-.game-card__title {
+.games__card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-honey);
+}
+.games__card-emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+.games__card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: var(--fs-xl);
-  margin: 0;
   color: var(--color-rust);
+  line-height: var(--lh-tight);
 }
-.game-card__desc {
-  margin: 0;
+.games__card-desc {
   color: var(--text-muted);
   font-size: var(--fs-sm);
+  line-height: var(--lh-base);
 }
-.game-card__body {
-  margin-top: var(--space-3);
+.games__card-cta {
+  margin-top: auto;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-clay);
+}
+@media (prefers-reduced-motion: reduce) {
+  .games__card {
+    transition: none;
+  }
 }
 
 /* Memory match */
@@ -1321,3 +1356,207 @@ body {
     transition: none;
   }
 }
+
+/* Game modal */
+.game-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+.game-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(43, 30, 23, 0.55);
+}
+.game-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 100%);
+  max-height: calc(100svh - 2 * var(--space-4));
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.game-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border);
+  background: var(--color-cream);
+}
+.game-modal__title {
+  margin: 0;
+  font-size: clamp(var(--fs-lg), 3vw, var(--fs-xl));
+  color: var(--color-rust);
+}
+.game-modal__close {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.game-modal__close:hover {
+  background: var(--color-sand);
+  border-color: var(--color-clay);
+}
+.game-modal__tabs {
+  display: flex;
+  gap: var(--space-2);
+  padding: 0 var(--space-5);
+  border-bottom: 1px solid var(--border);
+  background: var(--color-cream);
+}
+.game-modal__tab {
+  position: relative;
+  padding: var(--space-3) var(--space-4);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  min-height: 44px;
+}
+.game-modal__tab:hover {
+  color: var(--color-rust);
+}
+.game-modal__tab--active {
+  color: var(--color-rust);
+  border-bottom-color: var(--color-clay);
+}
+.game-modal__panel-body {
+  padding: var(--space-5);
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.game-modal__panel-body p {
+  margin: 0 0 var(--space-3);
+  line-height: var(--lh-base);
+}
+.game-modal__panel-body p:last-child {
+  margin-bottom: 0;
+}
+.game-modal__panel-body:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: -2px;
+}
+
+/* Proverbs */
+.proverbs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.proverbs__progress {
+  margin: 0;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+.proverbs__start {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-style: italic;
+  color: var(--color-rust);
+}
+.proverbs__options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.proverb-option {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-honey);
+  background: var(--color-cream);
+  color: var(--text);
+  font: inherit;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.proverb-option:hover:not([disabled]) {
+  background: var(--color-sand);
+  border-color: var(--color-clay);
+}
+.proverb-option[disabled] {
+  cursor: default;
+  opacity: 0.85;
+}
+.proverb-option--correct {
+  background: #2F6F3D;
+  border-color: #2F6F3D;
+  color: var(--color-cream);
+  opacity: 1;
+}
+.proverb-option--wrong {
+  background: var(--color-rust);
+  border-color: var(--color-rust);
+  color: var(--color-cream);
+  opacity: 1;
+}
+.proverbs__feedback {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-sand);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+.proverbs__feedback-line {
+  margin: 0;
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+.proverbs__feedback-mark {
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  line-height: 1;
+}
+.proverbs__next {
+  align-self: flex-start;
+}
+.proverbs__final {
+  margin: 0;
+  font-size: var(--fs-lg);
+  color: var(--color-rust);
+  font-weight: 600;
+}
+@media (prefers-reduced-motion: reduce) {
+  .proverb-option {
+    transition: none;
+  }
+}
+
+

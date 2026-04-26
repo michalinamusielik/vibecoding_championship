@@ -80,3 +80,37 @@ export const riddles: Riddle[] = [
     answer: "PAJĄK",
   },
 ];
+
+export interface ProverbRound {
+  start: string;
+  options: string[];
+  answer: string;
+}
+
+export const proverbRounds: ProverbRound[] = [
+  {
+    start: "Kto rano wstaje…",
+    options: ["temu Pan Bóg daje", "ten szybciej zasypia", "ten do południa pracuje"],
+    answer: "temu Pan Bóg daje",
+  },
+  {
+    start: "Bez pracy…",
+    options: ["nie ma kołaczy", "nie ma chleba", "nie ma snu"],
+    answer: "nie ma kołaczy",
+  },
+  {
+    start: "Gdzie kucharek sześć…",
+    options: ["tam nie ma co jeść", "tam obiad gotowy", "tam ciasto się piecze"],
+    answer: "tam nie ma co jeść",
+  },
+  {
+    start: "Mądry Polak…",
+    options: ["po szkodzie", "przed obiadem", "w niedzielę"],
+    answer: "po szkodzie",
+  },
+  {
+    start: "Nie chwal dnia…",
+    options: ["przed zachodem słońca", "przed śniadaniem", "zanim się rozpocznie"],
+    answer: "przed zachodem słońca",
+  },
+];
