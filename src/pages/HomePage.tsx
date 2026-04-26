@@ -103,12 +103,15 @@ export function HomePage() {
   return (
     <>
       <Hero />
+      <hr className="section-rule" />
       <Knowledge />
+      <hr className="section-rule" />
       <PersonaPicker
         personas={personas}
         activePersonaId={activePersonaId}
         onSelectPersona={handleSelectPersona}
       />
+      <hr className="section-rule" />
       {showEmptyState ? (
         <>
           <div aria-live="polite" className="sr-only">
@@ -157,7 +160,9 @@ export function HomePage() {
           }
         />
       )}
+      <hr className="section-rule" />
       <GamesSection />
+      <hr className="section-rule" />
       <Volunteer />
     </>
   );

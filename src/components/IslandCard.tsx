@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Island } from "../data/islands";
+import { personaEyebrows } from "../utils/personaEyebrow";
 
 interface IslandCardProps {
   island: Island;
@@ -29,11 +30,18 @@ export function IslandCard({
       }}
       aria-label={`Wyspa: ${island.title}. ${island.tagline}`}
     >
-      <span className="island-card__emoji" aria-hidden="true">
-        {island.emoji}
+      <span className="island-card__eyebrows">
+        {personaEyebrows(island.personas).map((label) => (
+          <span key={label} className="eyebrow eyebrow-pill">
+            {label}
+          </span>
+        ))}
       </span>
       <span className="island-card__title">{island.title}</span>
       <span className="island-card__tagline">{island.tagline}</span>
+      <span className="island-card__cta" aria-hidden="true">
+        Czytaj <span className="island-card__cta-arrow">→</span>
+      </span>
     </Link>
   );
 }

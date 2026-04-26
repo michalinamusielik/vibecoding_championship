@@ -4,10 +4,12 @@ import { OddOneOut } from "./OddOneOut";
 import { Riddles } from "./Riddles";
 import { Proverbs } from "./Proverbs";
 import { GameModal } from "./GameModal";
+import type { PersonaId } from "../../data/personas";
+import { personaEyebrows } from "../../utils/personaEyebrow";
 
 interface GameDef {
   id: string;
-  emoji: string;
+  personas: PersonaId[];
   title: string;
   short: string;
   description: ReactNode;
@@ -17,7 +19,7 @@ interface GameDef {
 const GAMES: GameDef[] = [
   {
     id: "memory",
-    emoji: "🧩",
+    personas: ["caregiver", "senior"],
     title: "Pamięciowe pary",
     short: "Znajdź sześć par odsłaniając karty.",
     description: (
@@ -37,7 +39,7 @@ const GAMES: GameDef[] = [
   },
   {
     id: "odd",
-    emoji: "🎯",
+    personas: ["caregiver", "senior"],
     title: "Co tu nie pasuje?",
     short: "Pięć rund — wskaż jedno słowo, które nie pasuje do reszty.",
     description: (
@@ -57,7 +59,7 @@ const GAMES: GameDef[] = [
   },
   {
     id: "riddles",
-    emoji: "🧠",
+    personas: ["caregiver", "curious", "senior"],
     title: "Szarady",
     short: "Cztery zagadki — odpowiedź odsłania się jednym kliknięciem.",
     description: (
@@ -76,7 +78,7 @@ const GAMES: GameDef[] = [
   },
   {
     id: "proverbs",
-    emoji: "💬",
+    personas: ["caregiver", "curious", "senior"],
     title: "Dokończ przysłowie",
     short: "Pięć rund — wybierz właściwe zakończenie polskiego przysłowia.",
     description: (
@@ -124,13 +126,17 @@ export function GamesSection() {
                 onClick={() => handleOpen(g.id)}
                 aria-haspopup="dialog"
               >
-                <span className="games__card-emoji" aria-hidden="true">
-                  {g.emoji}
+                <span className="games__card-eyebrows">
+                  {personaEyebrows(g.personas).map((label) => (
+                    <span key={label} className="eyebrow eyebrow-pill">
+                      {label}
+                    </span>
+                  ))}
                 </span>
                 <span className="games__card-title">{g.title}</span>
                 <span className="games__card-desc">{g.short}</span>
                 <span className="games__card-cta" aria-hidden="true">
-                  Otwórz grę →
+                  Otwórz grę <span className="games__card-cta-arrow">→</span>
                 </span>
               </button>
             </li>

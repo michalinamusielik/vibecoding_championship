@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { islands } from "../data/islands";
 import { ModalSection } from "../components/ModalSection";
 import { NotFoundPage } from "./NotFoundPage";
+import { personaEyebrows } from "../utils/personaEyebrow";
 
 export function IslandPage() {
   const { id } = useParams<{ id: string }>();
@@ -22,9 +23,11 @@ export function IslandPage() {
 
   const titleId = `island-${island.id}-title`;
 
+  const related = islands.filter((i) => i.id !== island.id);
+
   return (
     <article
-      className="island-page"
+      className="island-page article"
       aria-labelledby={titleId}
       style={{
         ["--card-accent" as string]: `var(--color-${island.accentColor})`,
@@ -53,27 +56,48 @@ export function IslandPage() {
           <span aria-hidden="true">←</span> Powrót do wszystkich wysp
         </Link>
 
-        <header className="island-page__header">
-          <span className="island-page__emoji" aria-hidden="true">
-            {island.emoji}
+        <header className="island-page__header article__header">
+          <span className="island-page__eyebrows">
+            {personaEyebrows(island.personas).map((label) => (
+              <span key={label} className="eyebrow eyebrow-pill">
+                {label}
+              </span>
+            ))}
           </span>
           <h1
             id={titleId}
             ref={headingRef}
             tabIndex={-1}
-            className="island-page__title"
+            className="island-page__title article__title"
           >
             {island.title}
           </h1>
-          <p className="island-page__tagline">{island.tagline}</p>
+          <p className="island-page__tagline article__dek">{island.tagline}</p>
         </header>
 
-        <div className="island-page__body">
-          <p className="island-page__intro">{island.intro}</p>
+        <div className="island-page__body article__body">
+          <p className="island-page__intro article__intro">{island.intro}</p>
           {island.sections.map((section, i) => (
             <ModalSection key={i} section={section} />
           ))}
         </div>
+
+        <aside className="article__related" aria-label="Pozostałe wyspy">
+          <h2 className="article__related-title">Pozostałe wyspy</h2>
+          <ul className="article__related-list">
+            {related.map((r) => (
+              <li key={r.id} className="article__related-item">
+                <Link to={"/wyspa/" + r.id} className="article__related-link">
+                  <span className="article__related-emoji" aria-hidden="true">
+                    {r.emoji}
+                  </span>
+                  <span className="article__related-name">{r.title}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </aside>
+
       </div>
     </article>
   );
