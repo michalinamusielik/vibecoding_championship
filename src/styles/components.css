@@ -13,6 +13,13 @@ body {
   color: var(--color-ink-muted);
   font-weight: 600;
 }
+.eyebrow-pill {
+  display: inline-block;
+  border: 1px solid var(--color-rule);
+  border-radius: 999px;
+  padding: 2px 10px;
+  line-height: 1.6;
+}
 
 hr {
   border: none;
@@ -523,7 +530,10 @@ hr {
 .island-card--dimmed:hover {
   opacity: 0.7;
 }
-.island-card__eyebrow {
+.island-card__eyebrows {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
   margin-bottom: var(--space-2);
 }
 .island-card__title {
@@ -946,7 +956,10 @@ hr {
   padding-top: var(--space-3);
   border-top: 1px solid var(--color-rule);
 }
-.island-page__eyebrow {
+.island-page__eyebrows {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
   margin-bottom: var(--space-1);
 }
 .island-page__title {
@@ -1234,7 +1247,10 @@ hr {
 .games__card:hover .games__card-cta-arrow {
   transform: translateX(4px);
 }
-.games__card-eyebrow {
+.games__card-eyebrows {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
   margin-bottom: var(--space-2);
 }
 .games__card-title {

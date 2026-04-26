@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { islands } from "../data/islands";
 import { ModalSection } from "../components/ModalSection";
 import { NotFoundPage } from "./NotFoundPage";
-import { personaEyebrow } from "../utils/personaEyebrow";
+import { personaEyebrows } from "../utils/personaEyebrow";
 
 export function IslandPage() {
   const { id } = useParams<{ id: string }>();
@@ -57,8 +57,12 @@ export function IslandPage() {
         </Link>
 
         <header className="island-page__header article__header">
-          <span className="eyebrow island-page__eyebrow">
-            {personaEyebrow(island.personas)}
+          <span className="island-page__eyebrows">
+            {personaEyebrows(island.personas).map((label) => (
+              <span key={label} className="eyebrow eyebrow-pill">
+                {label}
+              </span>
+            ))}
           </span>
           <h1
             id={titleId}

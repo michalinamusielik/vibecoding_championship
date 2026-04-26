@@ -5,7 +5,7 @@ import { Riddles } from "./Riddles";
 import { Proverbs } from "./Proverbs";
 import { GameModal } from "./GameModal";
 import type { PersonaId } from "../../data/personas";
-import { personaEyebrow } from "../../utils/personaEyebrow";
+import { personaEyebrows } from "../../utils/personaEyebrow";
 
 interface GameDef {
   id: string;
@@ -126,8 +126,12 @@ export function GamesSection() {
                 onClick={() => handleOpen(g.id)}
                 aria-haspopup="dialog"
               >
-                <span className="eyebrow games__card-eyebrow">
-                  {personaEyebrow(g.personas)}
+                <span className="games__card-eyebrows">
+                  {personaEyebrows(g.personas).map((label) => (
+                    <span key={label} className="eyebrow eyebrow-pill">
+                      {label}
+                    </span>
+                  ))}
                 </span>
                 <span className="games__card-title">{g.title}</span>
                 <span className="games__card-desc">{g.short}</span>
