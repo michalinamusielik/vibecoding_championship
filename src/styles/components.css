@@ -523,9 +523,7 @@ hr {
 .island-card--dimmed:hover {
   opacity: 0.7;
 }
-.island-card__emoji {
-  font-size: 3rem;
-  line-height: 1;
+.island-card__eyebrow {
   margin-bottom: var(--space-2);
 }
 .island-card__title {
@@ -948,9 +946,8 @@ hr {
   padding-top: var(--space-3);
   border-top: 1px solid var(--color-rule);
 }
-.island-page__emoji {
-  font-size: 3.5rem;
-  line-height: 1;
+.island-page__eyebrow {
+  margin-bottom: var(--space-1);
 }
 .island-page__title {
   font-size: clamp(var(--fs-2xl), 5vw, var(--fs-3xl));
@@ -1237,9 +1234,7 @@ hr {
 .games__card:hover .games__card-cta-arrow {
   transform: translateX(4px);
 }
-.games__card-emoji {
-  font-size: 2.5rem;
-  line-height: 1;
+.games__card-eyebrow {
   margin-bottom: var(--space-2);
 }
 .games__card-title {
@@ -1790,10 +1785,6 @@ hr {
   border-bottom: 1px solid var(--color-rule);
   border-top: none;
   padding-top: 0;
-}
-.article__eyebrow {
-  font-size: 2.5rem;
-  line-height: 1;
 }
 .article__title {
   font-family: var(--font-display);

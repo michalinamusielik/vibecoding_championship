@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { islands } from "../data/islands";
 import { ModalSection } from "../components/ModalSection";
 import { NotFoundPage } from "./NotFoundPage";
+import { personaEyebrow } from "../utils/personaEyebrow";
 
 export function IslandPage() {
   const { id } = useParams<{ id: string }>();
@@ -56,8 +57,8 @@ export function IslandPage() {
         </Link>
 
         <header className="island-page__header article__header">
-          <span className="island-page__emoji article__eyebrow" aria-hidden="true">
-            {island.emoji}
+          <span className="eyebrow island-page__eyebrow">
+            {personaEyebrow(island.personas)}
           </span>
           <h1
             id={titleId}
