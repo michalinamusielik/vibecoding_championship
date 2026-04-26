@@ -727,6 +727,7 @@ body {
   grid-template-columns: 1fr;
   gap: var(--space-6);
   padding-bottom: var(--space-8);
+  margin-bottom: var(--space-5) !important;
 }
 @media (min-width: 768px) {
   .site-footer__inner {
