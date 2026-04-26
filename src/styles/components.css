@@ -48,8 +48,8 @@ body {
   color: var(--color-rust);
   letter-spacing: -0.01em;
   text-decoration: none;
-  padding-top: var(--space-20);
-  padding-bottom: var(--space-20);
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
 }
 .site-header__brand:hover {
   color: var(--color-brown);
