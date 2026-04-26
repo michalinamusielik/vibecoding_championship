@@ -956,6 +956,10 @@ body {
   outline: none;
   min-height: 44px;
 }
+.search-box__input:focus,
+.search-box__input:focus-visible {
+  outline: none;
+}
 .search-box__input::-webkit-search-cancel-button {
   display: none;
 }
