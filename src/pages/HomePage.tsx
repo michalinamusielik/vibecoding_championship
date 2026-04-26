@@ -7,6 +7,8 @@ import { Knowledge } from "../components/Knowledge";
 import { PersonaPicker } from "../components/PersonaPicker";
 import { IslandGrid } from "../components/IslandGrid";
 import { SearchBox } from "../components/SearchBox";
+import { GamesSection } from "../components/games/GamesSection";
+import { Volunteer } from "../components/Volunteer";
 import { searchIslands } from "../lib/searchIslands";
 
 interface HomeLocationState {
@@ -155,6 +157,8 @@ export function HomePage() {
           }
         />
       )}
+      <GamesSection />
+      <Volunteer />
     </>
   );
 }
