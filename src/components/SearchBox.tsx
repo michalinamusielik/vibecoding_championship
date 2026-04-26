@@ -43,7 +43,7 @@ export function SearchBox({ value, onChange, onClear }: SearchBoxProps) {
           id={id}
           type="search"
           className="search-box__input"
-          placeholder="Szukaj: np. pamięć, rozmowa, sen…"
+          placeholder="Szukaj: np. pamięć..."
           value={value}
           onChange={(event) => onChange(event.target.value)}
           autoComplete="off"

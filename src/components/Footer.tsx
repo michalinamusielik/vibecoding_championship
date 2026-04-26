@@ -45,7 +45,6 @@ export function Footer() {
             <li>KRS 0000160750</li>
             <li>NIP 8222092679</li>
             <li>REGON 015482875</li>
-            <li>Konto: 13 1600 1462 1818 9539 9000 0001</li>
           </ul>
         </section>
       </div>
