@@ -22,7 +22,7 @@ export function IslandGrid({
       <div className="container">
         <div className="islands__header">
           <h2 id="wyspy-heading" className="islands__title">
-            Sześć wysp wiedzy
+            Wiedza
           </h2>
           {search ? <div className="islands__search">{search}</div> : null}
         </div>

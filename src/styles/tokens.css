@@ -23,7 +23,7 @@
 
   /* Typografia */
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Fraunces", "DM Serif Display", Georgia, "Times New Roman", serif;
+  --font-display: "Playfair Display", "Fraunces", Georgia, "Times New Roman", serif;
 
   --fs-xs: 0.8125rem;
   --fs-sm: 0.9375rem;
@@ -47,6 +47,9 @@
   --space-6: 2rem;
   --space-8: 3rem;
   --space-10: 4.5rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+  --space-20: 10rem;
 
   /* Promienie, cienie */
   --radius-sm: 8px;

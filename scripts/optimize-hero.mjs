@@ -12,14 +12,21 @@ const outWebp = resolve(outDir, "hero.webp");
 const outJpg = resolve(projectRoot, "public", "images", "hero.jpg");
 
 const TARGET_WIDTH = 1600;
+const TARGET_HEIGHT = 2400;
 
 async function run() {
   await mkdir(outDir, { recursive: true });
 
-  const base = sharp(source).resize({ width: TARGET_WIDTH, withoutEnlargement: true });
+  const base = sharp(source).resize({
+    width: TARGET_WIDTH,
+    height: TARGET_HEIGHT,
+    fit: "cover",
+    position: "center",
+    withoutEnlargement: true,
+  });
 
-  await base.clone().webp({ quality: 60, effort: 6 }).toFile(outWebp);
-  await base.clone().jpeg({ quality: 82, mozjpeg: true }).toFile(outJpg);
+  await base.clone().webp({ quality: 58, effort: 6 }).toFile(outWebp);
+  await base.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(outJpg);
 
   const webpSize = (await stat(outWebp)).size;
   const jpgSize = (await stat(outJpg)).size;
