@@ -40,8 +40,6 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  padding-top: var(--space-20);
-  padding-bottom: var(--space-20);
 }
 .site-header__brand {
   font-family: var(--font-display);
@@ -50,6 +48,8 @@ body {
   color: var(--color-rust);
   letter-spacing: -0.01em;
   text-decoration: none;
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
 }
 .site-header__brand:hover {
   color: var(--color-brown);
