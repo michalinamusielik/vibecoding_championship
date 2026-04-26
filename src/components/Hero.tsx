@@ -19,9 +19,9 @@ export function Hero() {
             <source srcSet="/images/hero.webp" type="image/webp" />
             <img
               src="/images/hero.jpg"
-              alt="Opiekunka asystuje starszej parze przy wspólnym kolorowaniu książeczki — uśmiechy i ciepło codziennej obecności."
+              alt="Starsze osoby rozmawiające na przystanku autobusowym — codzienne spotkanie i wspólny czas."
               width="1600"
-              height="2400"
+              height="2000"
               loading="eager"
               fetchPriority="high"
               className="hero__image"
