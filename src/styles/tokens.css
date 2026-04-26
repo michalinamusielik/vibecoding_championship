@@ -1,42 +1,37 @@
-/* Design tokens — ciepła paleta, kontrast WCAG AA. */
+/* Design tokens — editorial cream + ink + rust. WCAG AA. */
 
 :root {
-  /* Paleta bazowa */
-  --color-cream: #FFF8F0;
-  --color-sand: #F3E3D0;
-  --color-honey: #D9B382;
-  --color-amber: #E8A93C;
-  --color-clay: #B4583C;
-  --color-rust: #8F3E20;
-  --color-brown: #4A3428;
-  --color-ink: #2B1E17;
+  /* Fonty */
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body-serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --font-ui: "Inter Variable", "Inter", system-ui, -apple-system, sans-serif;
 
-  /* Role semantyczne */
-  --bg: var(--color-cream);
-  --bg-elevated: #FFFFFF;
-  --bg-muted: var(--color-sand);
-  --text: var(--color-ink);
-  --text-muted: #5C4636;
-  --accent: var(--color-clay);
-  --accent-soft: var(--color-amber);
-  --border: #E7D6BE;
+  /* Paleta */
+  --color-bg: #F5F0E8;
+  --color-bg-elevated: #ECE6DA;
+  --color-ink: #1A1A1A;
+  --color-ink-muted: #5C5550;
+  --color-rule: #D9D2C5;
+  --color-accent: #A04E32;
+  --color-accent-hover: #853F28;
 
-  /* Typografia */
-  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Playfair Display", "Fraunces", Georgia, "Times New Roman", serif;
-
+  /* Skala typograficzna (modular ~1.25) */
   --fs-xs: 0.8125rem;
   --fs-sm: 0.9375rem;
   --fs-base: 1.125rem;
-  --fs-lg: 1.25rem;
-  --fs-xl: 1.625rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 1.875rem;
   --fs-2xl: 2.25rem;
   --fs-3xl: 3rem;
   --fs-4xl: 4rem;
+  --fs-5xl: 5.5rem;
 
-  --lh-tight: 1.15;
-  --lh-snug: 1.35;
-  --lh-base: 1.6;
+  /* Line-height */
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.75;
 
   /* Przestrzeń */
   --space-1: 0.25rem;
@@ -51,15 +46,41 @@
   --space-16: 8rem;
   --space-20: 10rem;
 
-  /* Promienie, cienie */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
+  /* Promienie (Aeon = ostre) */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
   --radius-full: 999px;
 
-  --shadow-sm: 0 2px 6px rgba(74, 52, 40, 0.08);
-  --shadow-md: 0 8px 24px rgba(74, 52, 40, 0.12);
-  --shadow-lg: 0 18px 48px rgba(74, 52, 40, 0.18);
+  /* Cienie (nie używamy drop-shadow boxów) */
+  --shadow-1: 0 1px 0 var(--color-rule);
+  --shadow-2: none;
 
   --max-w: 1120px;
+
+  /* Aliasy dla starych zmiennych — komponenty nadal działają */
+  --color-cream: var(--color-bg);
+  --color-sand: var(--color-bg-elevated);
+  --color-honey: var(--color-rule);
+  --color-amber: var(--color-accent);
+  --color-clay: var(--color-accent);
+  --color-rust: var(--color-accent);
+  --color-brown: var(--color-ink);
+
+  --bg: var(--color-bg);
+  --bg-elevated: var(--color-bg-elevated);
+  --bg-muted: var(--color-bg-elevated);
+  --text: var(--color-ink);
+  --text-muted: var(--color-ink-muted);
+  --accent: var(--color-accent);
+  --accent-soft: var(--color-accent);
+  --border: var(--color-rule);
+
+  --font-body: var(--font-ui);
+
+  --lh-base: var(--lh-normal);
+
+  --shadow-sm: var(--shadow-1);
+  --shadow-md: var(--shadow-2);
+  --shadow-lg: var(--shadow-2);
 }
