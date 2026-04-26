@@ -53,8 +53,8 @@ function HashScroll() {
 }
 
 const NAV_LINKS: Array<{ hash: string; label: string }> = [
-  { hash: "#wiedza", label: "Wiedza" },
-  { hash: "#wyspy", label: "Wyspy" },
+  { hash: "#wiedza", label: "Starość w liczbach" },
+  { hash: "#wyspy", label: "Wiedza" },
   { hash: "#gry", label: "Gry" },
   { hash: "#wolontariat", label: "Wolontariat" },
 ];

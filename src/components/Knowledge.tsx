@@ -48,11 +48,11 @@ export function Knowledge() {
       <div className="container knowledge__inner">
         <header className="knowledge__heading">
           <h2 id="knowledge-h" className="knowledge__title">
-            Wiedza, która zmienia spojrzenie
+            Starość w liczbach
           </h2>
           <p className="knowledge__lede">
-            Starość w liczbach — kilka faktów, które warto znać, zanim zaczniesz
-            rozmawiać, towarzyszyć i działać.
+            Kilka faktów, które warto znać, zanim zaczniesz rozmawiać,
+            towarzyszyć i działać.
           </p>
         </header>
 
