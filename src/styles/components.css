@@ -252,7 +252,7 @@ body {
 
 /* Persona picker section */
 .persona-picker {
-  padding: 0 0 var(--space-6);
+  padding: var(--space-8) 0 var(--space-6);
 }
 .persona-picker__inner {
   display: flex;
@@ -261,7 +261,7 @@ body {
 }
 .persona-picker__eyebrow {
   font-family: var(--font-display);
-  font-size: var(--fs-lg);
+  font-size: clamp(var(--fs-xl), 4vw, var(--fs-2xl));
   font-weight: 600;
   margin: 0;
   color: var(--text);
