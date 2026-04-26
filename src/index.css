@@ -15,7 +15,7 @@ body {
 
 html {
   color-scheme: light;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 80px;
   font-feature-settings: "kern", "liga", "calt";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -88,4 +88,10 @@ button {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 var(--space-5);
+}
+
+.container--reading {
+  max-width: 65ch;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
 }
