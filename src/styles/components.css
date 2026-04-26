@@ -1771,3 +1771,262 @@ hr {
 }
 
 
+
+/* Article (long-form editorial layout for /wyspa/:id) */
+.article {
+  padding-block: var(--space-12);
+}
+.article .island-page__inner {
+  gap: var(--space-8);
+}
+.article__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: var(--max-w);
+  margin-inline: auto;
+  width: 100%;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-rule);
+  border-top: none;
+  padding-top: 0;
+}
+.article__eyebrow {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+.article__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--fs-3xl), 6vw, var(--fs-5xl));
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  color: var(--color-ink);
+  margin: 0;
+  max-width: 22ch;
+}
+.article__dek {
+  font-family: var(--font-body-serif);
+  font-style: italic;
+  font-size: var(--fs-md);
+  line-height: var(--lh-snug);
+  color: var(--color-ink-muted);
+  max-width: 65ch;
+  margin: 0;
+}
+.article__body {
+  max-width: 65ch;
+  margin-inline: auto;
+  width: 100%;
+  font-family: var(--font-body-serif);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+}
+.article__intro {
+  font-family: var(--font-body-serif);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink);
+  max-width: none;
+  margin: 0 0 var(--space-5);
+}
+.article__body > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-size: 5em;
+  line-height: 0.85;
+  float: left;
+  margin: 0.05em 0.1em 0 0;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+.article__body p {
+  margin: 0 0 var(--space-5);
+}
+.article__body h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  margin: var(--space-8) 0 var(--space-4);
+}
+.article__body h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  margin: var(--space-6) 0 var(--space-3);
+}
+.article__body ul,
+.article__body ol {
+  list-style-position: outside;
+  padding-left: var(--space-5);
+  margin: 0 0 var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.article__body li {
+  line-height: var(--lh-relaxed);
+}
+.article__body a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+.article__body a:hover,
+.article__body a:focus-visible {
+  color: var(--color-accent-hover);
+  text-decoration: none;
+}
+.article__body blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: var(--space-5);
+  margin: var(--space-8) 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-xl);
+  line-height: var(--lh-snug);
+  color: var(--color-ink);
+  max-width: 60ch;
+  background: transparent;
+  border-radius: 0;
+}
+.article__body blockquote p {
+  margin: 0 0 var(--space-3);
+}
+.article__related {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  width: 100%;
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-rule);
+}
+.article__related-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-5);
+}
+.article__related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.article__related-item {
+  border-top: 1px solid var(--color-rule);
+}
+.article__related-item:last-child {
+  border-bottom: 1px solid var(--color-rule);
+}
+.article__related-link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  text-decoration: none;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+.article__related-link:hover,
+.article__related-link:focus-visible {
+  color: var(--color-accent);
+}
+.article__related-emoji {
+  font-size: 1.25em;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.article__related-name {
+  font-family: var(--font-display);
+}
+
+/* Editorial overrides for ModalSection rendered inside an article body */
+.article__body .modal-section {
+  margin-top: var(--space-6);
+}
+.article__body .modal-section__h {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-tight);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-4);
+}
+.article__body .modal-section__icon {
+  font-size: 1em;
+  margin-right: var(--space-2);
+}
+.article__body .modal-section__list {
+  font-family: var(--font-body-serif);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  padding-left: var(--space-5);
+  gap: var(--space-3);
+}
+.article__body .modal-section__list li {
+  line-height: var(--lh-relaxed);
+}
+.article__body .modal-quote {
+  background: transparent;
+  border-left: 2px solid var(--color-accent);
+  border-radius: 0;
+  padding: 0 0 0 var(--space-5);
+  margin: var(--space-8) 0;
+  color: var(--color-ink);
+  max-width: 60ch;
+}
+.article__body .modal-quote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-xl);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-3);
+}
+.article__body .modal-quote__author {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+}
+.article__body .modal-table-wrap {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+  border-radius: 0;
+}
+.article__body .modal-table {
+  font-family: var(--font-body-serif);
+  font-size: var(--fs-sm);
+}
+.article__body .modal-table thead th {
+  background: transparent;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--fs-xs);
+  color: var(--color-ink-muted);
+  border-bottom: 1px solid var(--color-rule);
+}
+
