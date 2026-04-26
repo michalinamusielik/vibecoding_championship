@@ -769,7 +769,7 @@ body {
 }
 .site-footer a {
   color: var(--color-brown);
-  text-decoration: underline;
+  text-decoration: none;
 }
 .site-footer a:hover {
   color: var(--color-rust);
